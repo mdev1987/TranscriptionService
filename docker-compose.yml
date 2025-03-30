@@ -1,0 +1,25 @@
+# version: "3.8"
+services:
+  telegram_bot:
+    build: ./telegram_bot
+    environment:
+      - BOTTOKEN=${BOTTOKEN}
+    volumes:
+      - /root/fa_model:/models/fa_model
+      - /root/en_model:/models/en_model
+    restart: always
+
+  webui:
+    build: ./webui
+    ports:
+      - "5000:5000"
+    volumes:
+      - fa_model:/models/fa_model
+      - en_model:/models/en_model
+    restart: always
+
+volumes:
+  fa_model:
+    driver: local
+  en_model:
+    driver: local

@@ -1,0 +1,8 @@
+body {
+    background: linear-gradient(135deg, #74ABE2, #5563DE);
+    color: #fff;
+  }
+  .card {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
